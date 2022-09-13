@@ -6,6 +6,6 @@ orbs:
 workflows:
   main:
     jobs:
-      - readme-update/readme-update-check
+      - readme-update/hello-build
 
       
