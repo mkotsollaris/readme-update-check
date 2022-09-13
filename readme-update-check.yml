@@ -1,9 +1,7 @@
-description: An orb with some simple ways to help you with your first build.
+version: 2.1
 
-jobs:
-  hello-build:
-    executor: default
-    steps:
-    - run:
-        name: Skip when all ECR tags exist
-        command: <<include(scripts/readme-update-check.sh)>>
+description: An orb to detect unmodified .md files
+
+steps:
+  - run:
+      command: <<include(scripts/readme-update-check.sh)>>
