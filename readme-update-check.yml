@@ -6,7 +6,7 @@ commands:
   readme-update-check:
     steps:
     - run:
-        command: <<include(scripts/readme-update-check.sh)>>
+        command: \<<include(scripts/readme-update-check.sh)\>>
 
 executors:
   default:
