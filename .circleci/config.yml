@@ -3,17 +3,9 @@ version: 2.1
 orbs:
   readme-update-check: mkotsollaris/readme-update-check@0.0.1
 
-jobs:
-  test:
-    docker:
-      - image: 'circleci/python:3.7'
-    steps:
-      - checkout
-      - mkotsollaris/readme-update-check
-
 workflows:
-  test-format:
+  main:
     jobs:
-      - test
+      - mkotsollaris/readme-update-check
 
       
