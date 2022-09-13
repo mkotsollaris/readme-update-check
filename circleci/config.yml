@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  untracked_changes: niteo/readme-update-check@dev:first
+jobs:
+  test:
+    docker:
+      - image: 'circleci/python:3.7'
+    steps:
+      - checkout
+      - mkotsollaris/readme-update-check
+
+workflows:
+  test-format:
+    jobs:
+      - test
