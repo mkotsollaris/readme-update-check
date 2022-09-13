@@ -1,6 +1,8 @@
 version: 2.1
+
 orbs:
-  untracked_changes: niteo/readme-update-check@dev:first
+  mkotsollaris-private-orb: mkotsollaris/readme-update-check@dev:first
+
 jobs:
   test:
     docker:
