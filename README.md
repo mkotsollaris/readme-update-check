@@ -2,6 +2,10 @@
 
 Check how frequently your documentation is updated with `readme-update-checks` in CI.
 
+# Validate
+
+`circleci orb validate readme-update-check.yml`
+
 # Publish
 
 `circleci orb publish readme-update-check.yml mkotsollaris/readme-update-check@version`
@@ -10,6 +14,10 @@ Check how frequently your documentation is updated with `readme-update-checks` i
 
 `circleci orb publish promote mkotsollaris/readme-update-check@dev:first patch`
 
-# list orbs
+# List orbs
 
 `circleci orb list $USER --private`
+
+# Pack
+
+`circleci orb pack . > orb.yml`
