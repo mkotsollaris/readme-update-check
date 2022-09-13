@@ -6,8 +6,7 @@ commands:
   readme-update-check:
     steps:
     - run:
-        command: |-
-          - sh ./readme-update-check.sh
+        command: sh ./readme-update-check.sh
         name: Show some of the CircleCI runtime env vars
 
 executors:
