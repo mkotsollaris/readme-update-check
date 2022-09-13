@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  readme-update: mkotsollaris/readme-update-check@0.0.3
+  readme-update: mkotsollaris/readme-update-check@0.0.4
 
 workflows:
   main:
