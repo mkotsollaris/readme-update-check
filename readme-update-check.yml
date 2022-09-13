@@ -2,6 +2,23 @@ version: 2.1
 
 description: An orb to detect unmodified .md files
 
-steps:
-  - run:
-      command: <<include(scripts/readme-update-check.sh)>>
+commands:
+  readme-update-check:
+    steps:
+    - run:
+        command: <<include(scripts/readme-update-check.sh)>>
+
+executors:
+  default:
+    docker:
+    - image: circleci/buildpack-deps:<< parameters.tag >>
+    parameters:
+      tag:
+        default: curl-browsers
+        type: string
+
+jobs:
+  hello-build:
+    executor: default
+    steps:
+    - readme-update-check
