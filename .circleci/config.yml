@@ -1,11 +1,9 @@
 version: 2.1
 
 orbs:
-  readme-update: mkotsollaris/readme-update-check@0.0.2
+  readme-update: mkotsollaris/readme-update-check@0.0.3
 
 workflows:
   main:
     jobs:
       - readme-update/hello-build
-
-      
