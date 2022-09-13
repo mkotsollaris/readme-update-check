@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# get all .md files
-# get the last modified time
-# print all files which haven't b gotten modified in last 90 days
-
 find . -type f -name "*.md" | while read mdFile; do
   A=$(date -r $mdFile +'%Y-%d-%m');
   B=$(date +'%Y-%d-%m');
