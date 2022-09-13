@@ -1,0 +1,26 @@
+version: 2.1
+
+description: An orb with some simple ways to help you with your first build.
+
+commands:
+  readme-update-check:
+    steps:
+    - run:
+        command: |-
+          - sh ./readme-update-check.sh
+        name: Show some of the CircleCI runtime env vars
+
+executors:
+  default:
+    docker:
+    - image: circleci/buildpack-deps:<< parameters.tag >>
+    parameters:
+      tag:
+        default: curl-browsers
+        type: string
+
+jobs:
+  hello-build:
+    executor: default
+    steps:
+    - readme-update-check
