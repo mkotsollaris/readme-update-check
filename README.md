@@ -5,3 +5,7 @@ Check how frequently your documentation is updated with `readme-update-checks` i
 # Publish
 
 `circleci orb publish readme-update-check.yml mkotsollaris/readme-update-check@version`
+
+# list orbs
+
+`circleci orb list --private`
