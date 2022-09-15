@@ -37,3 +37,7 @@ We welcome [issues](https://github.com/mkotsollaris/readme-update-check/issues) 
 5. Now ensure the version tag selected is semantically accurate based on the changes included.
 6. Click _"Publish Release"_.
     - This will push a new tag and trigger your publishing pipeline on CircleCI.
+
+### Tag the commit
+
+https://stackoverflow.com/a/18223354/1373465
