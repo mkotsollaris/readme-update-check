@@ -3,8 +3,8 @@
 find . -type f -name "*.md" | while read mdFile; do
   A=$(date -r $mdFile +'%Y-%d-%m');
   B=$(date +'%Y-%d-%m');
-  echo ($(date -d %Y-%d-%m "$A" +%s)
-  echo ($(date -d %Y-%d-%m "$B" +%s)
+  echo ($(date -jf %Y-%d-%m "$A" +%s)
+  echo ($(date -jf %Y-%d-%m "$B" +%s)
   DIFF=$((($(date -jf %Y-%d-%m "$B" +%s) - $(date -jf %Y-%d-%m "$A" +%s))/86400))
   echo $mdFile $DIFF
   if [ $DIFF>60 ]
