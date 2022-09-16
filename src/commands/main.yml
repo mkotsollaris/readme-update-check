@@ -1,0 +1,6 @@
+description: >
+  This command prints the README's last modified date
+steps:
+  - run:
+      name: Print README's last modified date
+      command: <<include(scripts/main.sh)>>
