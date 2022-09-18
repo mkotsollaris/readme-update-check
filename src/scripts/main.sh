@@ -1,7 +1,7 @@
 #!/bin/bash
 
 find . -type f -name "*.md" | while read mdFile; do
-  A=$(date -r $mdFile +'%y%m%d')
+  A=$(git log -1 --pretty="format:%as" $mdFile +'%y%m%d')
   B=$(date +'%y%m%d')
   echo $A
   echo $B
