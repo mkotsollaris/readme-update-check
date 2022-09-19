@@ -1,5 +1,6 @@
 #!/bin/bash
-
+echo Hello "${IGNORE_LIST}"
+echo Hello "${DAYS_THRESHOLD}"
 find . -type f -name "*.md" | while read mdFile; do
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
