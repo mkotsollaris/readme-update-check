@@ -10,6 +10,10 @@ find . -type f -name "*.md" | while read mdFile; do
     echo "gg!"
     continue
   fi
+  if [[ " ${IGNORED_FILES[*]} " =~ " ${mdFile} " ]]; then
+    echo "not in list ${IGNORED_FILES} ${mdFile}"
+    continue
+  fi
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
   echo $A
