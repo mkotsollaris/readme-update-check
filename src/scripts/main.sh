@@ -7,7 +7,7 @@ erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   # removing the first ./ folder as this is CircleCi directory
-  modifiedMdFile="${mdFile:2}"
+  modifiedMdFile="${mdFile}"
   echo $modifiedMdFile
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]]; then
     echo "true"
