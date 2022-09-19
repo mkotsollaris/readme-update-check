@@ -1,7 +1,7 @@
 description: >
   This command prints the README's last modified date
 parameters:
-  IGNORE_LIST:
+  IGNORED_FILES:
     type: string
     default: "./github./PULL_REQUEST_TEMPLATE/PULL_REQUEST.md"
     description: "files to be ignored (space-separated)"
@@ -12,7 +12,7 @@ parameters:
 steps:
   - run:
       environment:
-        BLOCKLIST: << parameters.IGNORE_LIST>>
+        IGNORED_FILES: << parameters.IGNORED_FILES>>
         DAYS_THRESHOLD: << parameters.DAYS_THRESHOLD>>
       name: Stale-Documentation identifier
       command: <<include(scripts/main.sh)>>
