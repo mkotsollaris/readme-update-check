@@ -1,17 +1,12 @@
 #!/bin/bash
 
-
-contains () { [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && exit(0) || exit(1) }
-
 echo "$IGNORED_FILES"
 echo "$DAYS_THRESHOLD"
 erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
-  shouldContinue=[[ "$IGNORED_FILES" =~ (^|[[:space:]])$mdFile($|[[:space:]]) ]] && "yes" || "no"
-  echo $shouldContinue
-  if [ $shouldContinue -eq 1 ];then
-    continue
+  if [[ " ${IGNORED_FILES[*]} " =~ " ${mdFile} " ]]; then
+    echo "gg!"
   fi
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
