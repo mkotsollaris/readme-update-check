@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# function contains {
-#     [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && exit(0) || exit(1)
-# }
 
 contains () { [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && exit(0) || exit(1) }
 
@@ -11,7 +8,7 @@ echo "$DAYS_THRESHOLD"
 erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
-  shouldContinue=contains "$IGNORED_FILES" $mdFile
+  shouldContinue=[[ "$IGNORED_FILES" =~ (^|[[:space:]])$mdFile($|[[:space:]]) ]] && "yes" || "no"
   echo $shouldContinue
   if [ $shouldContinue -eq 1 ];then
     continue
