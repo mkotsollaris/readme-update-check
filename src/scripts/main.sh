@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # function contains {
 #     [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && exit(0) || exit(1)
 # }
@@ -25,7 +26,6 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $DIFF>"$DAYS_THRESHOLD"
 
   if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
-  then
     erroredFiles+=( $mdFile )
   fi
 
