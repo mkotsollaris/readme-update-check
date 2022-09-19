@@ -1,9 +1,10 @@
 #!/bin/bash
-
+echo "$IGNORED_FILES"
+echo "$DAYS_THRESHOLD"
 erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
-  echo "$IGNORED_FILES" | grep -w $mdFile
+  # echo "$IGNORED_FILES" | grep -w $mdFile
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
   echo $A
