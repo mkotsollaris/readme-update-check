@@ -11,7 +11,7 @@ find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   shouldContinue=contains "$IGNORED_FILES" $mdFile
   echo $shouldContinue
-  [[ $DIFF -eq 1 ]]
+  if [[ $DIFF -eq 1 ]]
   then
     continue
   fi
