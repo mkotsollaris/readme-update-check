@@ -3,7 +3,7 @@ description: >
 parameters:
   IGNORED_FILES:
     type: string
-    default: "./github./PULL_REQUEST_TEMPLATE/PULL_REQUEST.md"
+    default: "./.github./PULL_REQUEST_TEMPLATE/PULL_REQUEST.md"
     description: "files to be ignored (space-separated)"
   DAYS_THRESHOLD:
     type: string
