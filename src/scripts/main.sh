@@ -3,6 +3,8 @@
 echo "$IGNORED_FILES"
 echo "$DAYS_THRESHOLD"
 IGNORED_FILES=("$IGNORED_FILES")
+echo $IGNORED_FILES
+echo ${IGNORED_FILES[*]}
 erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
