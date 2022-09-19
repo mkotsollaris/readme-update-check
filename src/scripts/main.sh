@@ -12,7 +12,7 @@ find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   shouldContinue=contains "$IGNORED_FILES" $mdFile
   echo $shouldContinue
-  if [ $DIFF -eq 1 ]
+  if [ $DIFF -eq 1 ];
   then
     continue
   fi
@@ -24,10 +24,10 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $mdFile $DIFF
   echo $DIFF>"$DAYS_THRESHOLD"
 
-  if [ $DIFF -gt "$DAYS_THRESHOLD" ];
-  then
-    erroredFiles+=( $mdFile )
-  fi
+  # if [ $DIFF -gt "$DAYS_THRESHOLD" ];
+  # then
+  #   erroredFiles+=( $mdFile )
+  # fi
 
   if [ ${#erroredFiles[@]} -eq 0 ]; 
   then
