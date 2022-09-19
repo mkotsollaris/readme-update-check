@@ -25,7 +25,7 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $mdFile $DIFF
   echo $DIFF>"$DAYS_THRESHOLD"
 
-  if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
+  if [ $DIFF -gt "$DAYS_THRESHOLD" ]
   then
     erroredFiles+=( $mdFile )
   fi
