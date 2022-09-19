@@ -2,6 +2,8 @@
 
 erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
+  # check if mdFile is part of IGNORED_FILES
+  echo "$IGNORED_FILES" | grep -w -q $mdFile
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
   echo $A
@@ -10,11 +12,11 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $mdFile $DIFF
   echo $DIFF>"$DAYS_THRESHOLD"
 
-  if [[ $DIFF -gt 0 ]]
+  if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
   then
     erroredFiles+=( $mdFile )
   fi
-  echo $erroredFiles
+
   if [ ${#erroredFiles[@]} -eq 0 ]; then
     echo "Your documentation is up to date. Good job!"
   else
