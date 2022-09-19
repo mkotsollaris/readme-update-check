@@ -1,6 +1,6 @@
 #!/bin/bash
-echo Hello "${IGNORED_FILES}"
-echo QQ "${DAYS_THRESHOLD}"
+
+erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
@@ -12,8 +12,14 @@ find . -type f -name "*.md" | while read mdFile; do
 
   if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
   then
-    echo "The variable is greater than 10."
-    echo "File: ${mdFile} has not been upgraded for ${DIFF} days."
-    exit 1
+    erroredFiles+=( $mdFile )
+  fi
+  echo $erroredFiles
+  if [ ${#erroredFiles[@]} -eq 0 ]; then
+    echo "Your documentation is up to date. Good job!"
+  else
+      echo "Oops, something went wrong..."
+      echo "These files are not up to date: ${erroredFiles}. Consider updating them!"
+      exit 1
   fi
 done
