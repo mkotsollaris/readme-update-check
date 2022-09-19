@@ -7,8 +7,8 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $B
   DIFF=$(( ($(date --date=$A +%s) - $(date --date=$B +%s) )/(60*60*24) ))
   echo $mdFile $DIFF
-  # if [ $DIFF>60 ]
-  #   then
-  #       exit 1
-  #   fi
+  if [ $DIFF>2 ]
+    then
+        exit 1
+  fi
 done
