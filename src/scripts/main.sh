@@ -11,6 +11,7 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $DIFF>"$DAYS_THRESHOLD"
   if [ $DIFF>90 ]
     then
+        echo "File: ${mdFile} has not been upgraded for ${DIFF} days."
         exit 1
   fi
 done
