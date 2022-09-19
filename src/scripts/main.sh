@@ -9,9 +9,11 @@ find . -type f -name "*.md" | while read mdFile; do
   DIFF=$(( ($(date --date=$A +%s) - $(date --date=$B +%s) )/(60*60*24) ))
   echo $mdFile $DIFF
   echo $DIFF>"$DAYS_THRESHOLD"
-  if [ $DIFF>90 ]
-    then
-        echo "File: ${mdFile} has not been upgraded for ${DIFF} days."
-        exit 1
+
+  if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
+  then
+    echo "The variable is greater than 10."
+    echo "File: ${mdFile} has not been upgraded for ${DIFF} days."
+    exit 1
   fi
 done
