@@ -1,6 +1,8 @@
-function contains {
-    [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && exit(0) || exit(1)
-}
+# function contains {
+#     [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && exit(0) || exit(1)
+# }
+
+contains () { echo "hello!" }
 
 echo "$IGNORED_FILES"
 echo "$DAYS_THRESHOLD"
