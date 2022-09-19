@@ -8,13 +8,10 @@ echo ${IGNORED_FILES[*]}
 erroredFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
-  if [[ " ${IGNORED_FILES[*]} " =~ " ${mdFile} " ]]; then
-    echo "gg!"
-    continue
-  fi
-  if [[ ! " ${IGNORED_FILES[*]} " =~ " ${mdFile} " ]]; then
-    echo "not in list ${IGNORED_FILES} ${mdFile}"
-    continue
+  if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]]; then
+    echo "true"
+  else
+      echo "false"
   fi
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
