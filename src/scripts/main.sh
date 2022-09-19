@@ -10,7 +10,7 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $mdFile $DIFF
   echo $DIFF>"$DAYS_THRESHOLD"
 
-  if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
+  if [[ $DIFF -gt 0 ]]
   then
     erroredFiles+=( $mdFile )
   fi
