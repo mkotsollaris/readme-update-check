@@ -8,6 +8,7 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $B
   DIFF=$(( ($(date --date=$A +%s) - $(date --date=$B +%s) )/(60*60*24) ))
   echo $mdFile $DIFF
+  echo $DIFF>"$DAYS_THRESHOLD"
   if [ $DIFF>"$DAYS_THRESHOLD" ]
     then
         exit 1
