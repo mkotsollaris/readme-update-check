@@ -25,12 +25,12 @@ find . -type f -name "*.md" | while read mdFile; do
   echo $mdFile $DIFF
   echo $DIFF>"$DAYS_THRESHOLD"
 
-  if [ $DIFF -gt "$DAYS_THRESHOLD" ]
+  if [[ $DIFF -gt "$DAYS_THRESHOLD" ]]
   then
     erroredFiles+=( $mdFile )
   fi
 
-  if [ ${#erroredFiles[@]} -eq 0 ]
+  if [[ ${#erroredFiles[@]} -eq 0 ]]
   then
     echo "Your documentation is up to date. Good job!"
   else
