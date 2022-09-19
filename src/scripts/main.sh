@@ -8,6 +8,7 @@ find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   # adding an extra ./ folder for CircleCi directory
   modifiedMdFile="./${mdFile}"
+  echo $modifiedMdFile
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]]; then
     echo "true"
   else
