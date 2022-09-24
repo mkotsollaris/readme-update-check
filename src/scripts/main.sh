@@ -5,11 +5,10 @@ allFiles=()
 erroredFiles=()
 
 find . -type f -name "*.md" | while read mdFile; do
-  # check if mdFile is part of IGNORED_FILES
-  # removing the first ./ folder as this is CircleCi directory
 
+  # appent file to allFiles
   allFiles=(${allFiles[@]} $mdFile) 
-  for i in "${allFiles[@]}"; do echo "CHECKARE ME: $i" ; done
+
    
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]];
   then
