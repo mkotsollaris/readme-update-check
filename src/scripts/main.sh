@@ -25,10 +25,12 @@ find . -type f -name "*.md" | while read mdFile; do
   fi
 done
 
- if [ ${#erroredFiles[@]} -eq 0 ]; then
-    echo "Your documentation is up to date. Good job!"
-  else
-      echo "Oops, something went wrong..."
-      echo "These files are not up to date: ${erroredFiles}. Consider updating them!"
-      exit 1
-  fi
+echo $allFiles
+
+if [ ${#erroredFiles[@]} -eq 0 ]; then
+  echo "Your documentation is up to date. Good job!"
+else
+    echo "Oops, something went wrong..."
+    echo "These files are not up to date: ${erroredFiles}. Consider updating them!"
+    exit 1
+fi
