@@ -8,8 +8,9 @@ allFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   # removing the first ./ folder as this is CircleCi directory
-  modifiedMdFile="${mdFile}"
-  allFiles+=( $modifiedMdFile )
+  modifiedMdFile=${mdFile}
+  allFiles+=($modifiedMdFile)
+  echo "gg $allFiles"
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]];
   then
     # skip if file is in $IGNORED_FILES
