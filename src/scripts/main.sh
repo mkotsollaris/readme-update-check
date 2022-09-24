@@ -7,17 +7,17 @@ erroredFiles=()
 ## declare an array variable
 allFiles=()
 find . -type f -name "*.md" | while read mdFile; do
+  echo "mpika $mdFile"
   # check if mdFile is part of IGNORED_FILES
   # removing the first ./ folder as this is CircleCi directory
-  modifiedMdFile=${mdFile}
 
-  allFiles=(${allFiles[@]} $modifiedMdFile) 
+  allFiles=(${allFiles[@]} $mdFile) 
   echo "ela man: " $allFiles
    
-  if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]];
+  if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]];
   then
     # skip if file is in $IGNORED_FILES
-    continue
+    # continue
   fi
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
