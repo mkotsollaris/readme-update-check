@@ -10,7 +10,8 @@ find . -type f -name "*.md" | while read mdFile; do
   # removing the first ./ folder as this is CircleCi directory
   modifiedMdFile="${mdFile}"
   allFiles+=( $modifiedMdFile )
-  if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]]; then
+  if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]];
+  then
     # skip if file is in $IGNORED_FILES
     continue
   fi
@@ -25,7 +26,7 @@ find . -type f -name "*.md" | while read mdFile; do
   fi
 done
 
-echo $allFiles
+echo "allfiles: $allFiles"
 
 if [ ${#erroredFiles[@]} -eq 0 ]; then
   echo "Your documentation is up to date. Good job!"
