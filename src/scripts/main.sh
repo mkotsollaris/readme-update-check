@@ -16,6 +16,7 @@ find . -type f -name "*.md" | while read mdFile; do
    
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]];
   then
+    echo "TODO continue here.."
     # skip if file is in $IGNORED_FILES
     # continue
   fi
