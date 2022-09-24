@@ -4,17 +4,16 @@ echo "$IGNORED_FILES"
 echo "$DAYS_THRESHOLD"
 IGNORED_FILES=("$IGNORED_FILES")
 erroredFiles=()
+allFiles=()
 find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   # removing the first ./ folder as this is CircleCi directory
   modifiedMdFile="${mdFile}"
+  allFiles+=( $modifiedMdFile )
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]]; then
-    echo "true"
+    # skip if file is in $IGNORED_FILES
     continue
-  else
-    echo "false"
   fi
-  echo "sinexisa"
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
   DIFF=$(( ($(date --date=$A +%s) - $(date --date=$B +%s) )/(60*60*24) ))
