@@ -1,10 +1,37 @@
 # Orb Template
 
-`Stale.MD` is a CircleCI orb that identifies stale documentation (ie 90 days of unchanged `.MD` file) and warns developers on maintaing their documentation.
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mkotsollaris/readme-update-check/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mkotsollaris/readme-update-check/tree/main)
+
+Find stale documentation through CI.
+
+`stale.md` is a CircleCI orb that identifies stale documentation (ie 90 days of unchanged `.md` file) and warns developers on maintaining their documentation.
 
 # Usage
 
-TBD
+```bash
+@orb reference TBD
+
+description: >
+  Identify Stale Documentation
+steps:
+  - stale.md/scan
+```
+
+# Options
+
+```bash
+parameters:
+  IGNORED_FILES:
+    type: string
+    default: "./.github/PULL_REQUEST_TEMPLATE/PULL_REQUEST.md"
+    description: "files to be ignored (space-separated)"
+  DAYS_THRESHOLD:
+    type: string
+    default: "90"
+    description: "Time threshold in days"
+```
+
+[Example here](./src/commands/main.yml).
 
 # Motivation
 
@@ -12,4 +39,8 @@ Inspired by [Software Engineering at Google](https://www.goodreads.com/book/show
 
 By utilizing this orb command, developers are reminded that while their software updates so does their documentation.
 
-This orb aspires to make developers treat their documentation as production level code where they constantly are motivated to update it.
+This orb aims to treat documentation as a first-class citizen, similar to production level code where documentation is always remaining up to date.
+
+# License
+
+[MIT](./LICENSE)
