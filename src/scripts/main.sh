@@ -12,8 +12,8 @@ find . -type f -name "*.md" | while read mdFile; do
   modifiedMdFile=${mdFile}
 
   allFiles=($modifiedMdFile)
-  allFiles=("${allFiles[@]}" "$modifiedMdFile") 
-  echo $allFiles
+  allFiles=(${allFiles[@]} $modifiedMdFile) 
+  echo "ela man: " $allFiles
    
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]];
   then
