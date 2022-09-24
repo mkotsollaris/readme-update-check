@@ -11,7 +11,6 @@ find . -type f -name "*.md" | while read mdFile; do
   # removing the first ./ folder as this is CircleCi directory
   modifiedMdFile=${mdFile}
 
-  allFiles=($modifiedMdFile)
   allFiles=(${allFiles[@]} $modifiedMdFile) 
   echo "ela man: " $allFiles
    
