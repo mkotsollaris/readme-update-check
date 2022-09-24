@@ -8,19 +8,17 @@ find . -type f -name "*.md" | while read mdFile; do
   # check if mdFile is part of IGNORED_FILES
   # removing the first ./ folder as this is CircleCi directory
   modifiedMdFile="${mdFile}"
-  echo $modifiedMdFile
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${modifiedMdFile}${IFS}" ]]; then
     echo "true"
+    continue
   else
     echo "false"
   fi
+  echo "sinexisa"
   gitDate=$(git log -1 --pretty="format:%as" $mdFile)
   B=$(date -d $gitDate +'%y%m%d')
-  echo $A
-  echo $B
   DIFF=$(( ($(date --date=$A +%s) - $(date --date=$B +%s) )/(60*60*24) ))
-  echo $mdFile $DIFF
-  echo $DIFF>"$DAYS_THRESHOLD"
+  echo "$mdFile has not beeing updated in $DIFF days"
 
   if [ $DIFF -gt "$DAYS_THRESHOLD" ];
   then
