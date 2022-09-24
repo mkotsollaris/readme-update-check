@@ -9,7 +9,6 @@ find . -type f -name "*.md" | while read mdFile; do
   # appent file to allFiles
   allFiles=(${allFiles[@]} $mdFile) 
 
-   
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]];
   then
     # skip if file is in $IGNORED_FILES

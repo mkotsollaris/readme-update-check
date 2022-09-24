@@ -1,5 +1,7 @@
 # Orb Template
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mkotsollaris/readme-update-check/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mkotsollaris/readme-update-check/tree/main)
+
 Find stale documentation through CI.
 
 `stale.md` is a CircleCI orb that identifies stale documentation (ie 90 days of unchanged `.md` file) and warns developers on maintaining their documentation.
