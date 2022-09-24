@@ -12,7 +12,7 @@ find . -type f -name "*.md" | while read mdFile; do
   # removing the first ./ folder as this is CircleCi directory
 
   allFiles=(${allFiles[@]} $mdFile) 
-  echo "ela man: " $allFiles
+  for i in "${foo[@]}"; do echo "CHECKARE ME: $i" ; done
    
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]];
   then
