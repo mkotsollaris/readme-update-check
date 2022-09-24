@@ -12,7 +12,7 @@ find . -type f -name "*.md" | while read mdFile; do
   # removing the first ./ folder as this is CircleCi directory
 
   allFiles=(${allFiles[@]} $mdFile) 
-  for i in "${foo[@]}"; do echo "CHECKARE ME: $i" ; done
+  for i in "${allFiles[@]}"; do echo "CHECKARE ME: $i" ; done
    
   if [[ "${IFS}${IGNORED_FILES[*]}${IFS}" =~ "${IFS}${mdFile}${IFS}" ]];
   then
@@ -31,7 +31,8 @@ find . -type f -name "*.md" | while read mdFile; do
   fi
 done
 
-echo "allfiles: $allFiles"
+echo "LAST OUT"
+for i in "${allFiles[@]}"; do echo "CHECKARE ME: $i" ; done
 
 if [ ${#erroredFiles[@]} -eq 0 ]; then
   echo "Your documentation is up to date. Good job!"
